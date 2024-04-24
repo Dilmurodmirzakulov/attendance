@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Filters from "./components/Filters";
+import Header from "./components/Header";
+import StudentsTable from "./components/StudentsTable";
+import NewTeachingWeek from "./components/modals/NewTeachingWeek";
+import AttendanceModal from "./components/modals/AttendanceModal";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [show, setShow] = useState(false);
+  const [showAttendance, setShowAttendance] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+    const handleCloseAttendance = () => setShowAttendance(false);
+    const handleShowAttendance = () => setShowAttendance(true);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <Header />
+      <main className="container">
+        <div className="wu-contact-student-link">
+          You can contact students of your groups <a href="#">here</a>
+        </div>
+        <Filters />
+        <button
+          className="btn btn-success d-block my-md-5 my-4 ml-auto"
+          onClick={handleShow}
+        >
+          <i className="fa-solid fa-plus"></i> Add new teaching week TW
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <StudentsTable handleShowAttendance={handleShowAttendance} />
+      </main>
+      <NewTeachingWeek handleClose={handleClose} show={show} />
+      <AttendanceModal
+        handleClose={handleCloseAttendance}
+        show={showAttendance}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

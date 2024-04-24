@@ -1,0 +1,62 @@
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wu-page-title {
+    font-size: 1rem;
+  }
+
+  .wu-logo {
+    height: 4rem;
+  }
+
+  .wu-navbar {
+    flex-direction: column;
+  }
+
+  .wu-navbar .nav-link {
+    font-size: .875rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+
+  .wu-navbar .nav {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .wu-navbar .nav .nav-item:nth-last-child(1) .nav-link {
+    padding-right: 0;
+  }
+
+  .wu-user-actions {
+    margin-left: auto;
+    font-size: .875rem;
+  }
+
+  .wu-contact-student-link {
+    font-size: .875rem;
+    width: 100%;
+    padding: .75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  table {
+    font-size: .875rem;
+  }
+
+  .btn {
+    font-size: .875rem;
+  }
+
+  .form-control {
+    padding: .25rem;
+  }
+
+  th, td {
+    padding: .35rem !important;
+  }
+}
